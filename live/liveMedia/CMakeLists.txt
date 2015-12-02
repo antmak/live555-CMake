@@ -322,3 +322,4 @@ ${live555Includes}
 )
 
 ADD_LIBRARY( liveMedia STATIC ${LIVE_MEDIA_HEADERS} ${LIVE_MEDIA_SRCS})
+TARGET_LINK_LIBRARIES(liveMedia groupsock UsageEnvironment)

@@ -26,3 +26,4 @@ ${live555Includes}
 )
 
 ADD_LIBRARY( groupsock STATIC ${GROUPSOCK_HEADERS} ${GROUPSOCK_SRCS})
+TARGET_LINK_LIBRARIES(groupsock UsageEnvironment)

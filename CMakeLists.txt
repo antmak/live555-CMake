@@ -18,4 +18,16 @@ ${live555_SOURCE_DIR}/live/liveMedia/include
 ${live555_SOURCE_DIR}/live/UsageEnvironment/include
 )
 
+IF(WIN32)
+	SET(EXTRA_LIBS
+		ws2_32
+		winmm
+	)
+	add_definitions(-DSOCKLEN_T=int)
+ENDIF()
+
+IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+	add_definitions(-DSOCKLEN_T=socklen_t)
+ENDIF()
+
 ADD_SUBDIRECTORY( live ) 

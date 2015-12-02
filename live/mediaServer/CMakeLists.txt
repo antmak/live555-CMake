@@ -12,12 +12,14 @@ live555MediaServer.cpp
 )
 
 ADD_EXECUTABLE(mediaServer ${MEDIA_SERVER_HDRS} ${MEDIA_SERVER_SRCS})
-TARGET_LINK_LIBRARIES(
-mediaServer
+TARGET_LINK_LIBRARIES(mediaServer
+UsageEnvironment
 BasicUsageEnvironment
 groupsock
 liveMedia
 UsageEnvironment
-ws2_32
-winmm
+BasicUsageEnvironment
+groupsock
+liveMedia
+${EXTRA_LIBS}
 ) 

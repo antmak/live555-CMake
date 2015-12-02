@@ -19,3 +19,4 @@ ${live555Includes}
 )
 
 ADD_LIBRARY( UsageEnvironment STATIC ${USAGE_ENVIRONMENT_HEADERS} ${USAGE_ENVIRONMENT_SRCS})
+TARGET_LINK_LIBRARIES(UsageEnvironment groupsock)

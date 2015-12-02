@@ -39,12 +39,10 @@ testRTSPClient.cpp
 ADD_EXECUTABLE(openRTSP ${COMMON_HDRS} ${OPEN_RTSP_SRCS})
 TARGET_LINK_LIBRARIES(
 openRTSP
-BasicUsageEnvironment
-groupsock
+
 liveMedia
-UsageEnvironment
-ws2_32
-winmm
+
+${EXTRA_LIBS}
 ) 
 
 ADD_EXECUTABLE(playSip ${COMMON_HDRS} ${PLAY_SIP_SRCS})
@@ -54,8 +52,7 @@ BasicUsageEnvironment
 groupsock
 liveMedia
 UsageEnvironment
-ws2_32
-winmm
+${EXTRA_LIBS}
 ) 
 
 ADD_EXECUTABLE(testAmrAudioStreamer ${COMMON_HDRS} ${TEST_AMR_AUDIO_STREAMER_SRCS})
@@ -65,8 +62,7 @@ BasicUsageEnvironment
 groupsock
 liveMedia
 UsageEnvironment
-ws2_32
-winmm
+${EXTRA_LIBS}
 ) 
 
 ADD_EXECUTABLE(testH264VideoStreamer ${COMMON_HDRS} ${TEST_H264_VIDEO_STREAMER_SRCS})
@@ -76,8 +72,7 @@ BasicUsageEnvironment
 groupsock
 liveMedia
 UsageEnvironment
-ws2_32
-winmm
+${EXTRA_LIBS}
 ) 
 
 ADD_EXECUTABLE(testH265VideoStreamer ${COMMON_HDRS} ${TEST_H265_VIDEO_STREAMER_SRCS})
@@ -87,8 +82,7 @@ BasicUsageEnvironment
 groupsock
 liveMedia
 UsageEnvironment
-ws2_32
-winmm
+${EXTRA_LIBS}
 ) 
 
 ADD_EXECUTABLE(testOnDemandRTSPServer ${COMMON_HDRS} ${ON_DEMAND_RTSP_SERVER_SRCS})
@@ -98,8 +92,7 @@ BasicUsageEnvironment
 groupsock
 liveMedia
 UsageEnvironment
-ws2_32
-winmm
+${EXTRA_LIBS}
 ) 
 
 ADD_EXECUTABLE(testRTSPClient ${COMMON_HDRS} ${TEST_RTSP_CLIENT_SRCS})
@@ -109,6 +102,5 @@ BasicUsageEnvironment
 groupsock
 liveMedia
 UsageEnvironment
-ws2_32
-winmm
+${EXTRA_LIBS}
 ) 
