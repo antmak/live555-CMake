@@ -2,105 +2,37 @@
 
 # headers
 SET(COMMON_HDRS
-playCommon.hh
+	playCommon.hh
 )
 
-# source files for MediaPreEncoderServer
-SET(OPEN_RTSP_SRCS 
-openRTSP.cpp
-playCommon.cpp
+SET(COMMON_LIBS
+	BasicUsageEnvironment
+	groupsock
+	liveMedia
+	UsageEnvironment
+	BasicUsageEnvironment
 )
 
-SET(PLAY_SIP_SRCS 
-playCommon.cpp
-playSIP.cpp
-)
+ADD_EXECUTABLE(openRTSP openRTSP.cpp playCommon.cpp ${COMMON_HDRS})
+TARGET_LINK_LIBRARIES(openRTSP ${COMMON_LIBS} ${EXTRA_LIBS})
 
-SET(TEST_AMR_AUDIO_STREAMER_SRCS 
-testAMRAudioStreamer.cpp
-)
+ADD_EXECUTABLE(playSip playSIP.cpp playCommon.cpp ${COMMON_HDRS})
+TARGET_LINK_LIBRARIES(playSip ${COMMON_LIBS} ${EXTRA_LIBS})
 
-SET(TEST_H264_VIDEO_STREAMER_SRCS 
-testH264VideoStreamer.cpp
-)
+ADD_EXECUTABLE(testAmrAudioStreamer testAMRAudioStreamer.cpp ${COMMON_HDRS})
+TARGET_LINK_LIBRARIES(testAmrAudioStreamer ${COMMON_LIBS} ${EXTRA_LIBS})
 
-SET(TEST_H265_VIDEO_STREAMER_SRCS 
-testH265VideoStreamer.cpp
-)
+ADD_EXECUTABLE(testH264VideoStreamer testH264VideoStreamer.cpp ${COMMON_HDRS})
+TARGET_LINK_LIBRARIES(testH264VideoStreamer ${COMMON_LIBS} ${EXTRA_LIBS})
 
-SET(ON_DEMAND_RTSP_SERVER_SRCS 
-testOnDemandRTSPServer.cpp
-)
+ADD_EXECUTABLE(testH265VideoStreamer testH265VideoStreamer.cpp ${COMMON_HDRS})
+TARGET_LINK_LIBRARIES(testH265VideoStreamer ${COMMON_LIBS} ${EXTRA_LIBS})
 
-SET(TEST_RTSP_CLIENT_SRCS 
-testRTSPClient.cpp
-)
+ADD_EXECUTABLE(testOnDemandRTSPServer testOnDemandRTSPServer.cpp ${COMMON_HDRS} )
+TARGET_LINK_LIBRARIES(testOnDemandRTSPServer ${COMMON_LIBS} ${EXTRA_LIBS})
 
-ADD_EXECUTABLE(openRTSP ${COMMON_HDRS} ${OPEN_RTSP_SRCS})
-TARGET_LINK_LIBRARIES(
-openRTSP
+ADD_EXECUTABLE(testRTSPClient testRTSPClient.cpp ${COMMON_HDRS})
+TARGET_LINK_LIBRARIES(testRTSPClient ${COMMON_LIBS} ${EXTRA_LIBS})
 
-liveMedia
-
-${EXTRA_LIBS}
-) 
-
-ADD_EXECUTABLE(playSip ${COMMON_HDRS} ${PLAY_SIP_SRCS})
-TARGET_LINK_LIBRARIES(
-playSip
-BasicUsageEnvironment
-groupsock
-liveMedia
-UsageEnvironment
-${EXTRA_LIBS}
-) 
-
-ADD_EXECUTABLE(testAmrAudioStreamer ${COMMON_HDRS} ${TEST_AMR_AUDIO_STREAMER_SRCS})
-TARGET_LINK_LIBRARIES(
-testAmrAudioStreamer
-BasicUsageEnvironment
-groupsock
-liveMedia
-UsageEnvironment
-${EXTRA_LIBS}
-) 
-
-ADD_EXECUTABLE(testH264VideoStreamer ${COMMON_HDRS} ${TEST_H264_VIDEO_STREAMER_SRCS})
-TARGET_LINK_LIBRARIES(
-testH264VideoStreamer
-BasicUsageEnvironment
-groupsock
-liveMedia
-UsageEnvironment
-${EXTRA_LIBS}
-) 
-
-ADD_EXECUTABLE(testH265VideoStreamer ${COMMON_HDRS} ${TEST_H265_VIDEO_STREAMER_SRCS})
-TARGET_LINK_LIBRARIES(
-testH265VideoStreamer
-BasicUsageEnvironment
-groupsock
-liveMedia
-UsageEnvironment
-${EXTRA_LIBS}
-) 
-
-ADD_EXECUTABLE(testOnDemandRTSPServer ${COMMON_HDRS} ${ON_DEMAND_RTSP_SERVER_SRCS})
-TARGET_LINK_LIBRARIES(
-testOnDemandRTSPServer
-BasicUsageEnvironment
-groupsock
-liveMedia
-UsageEnvironment
-${EXTRA_LIBS}
-) 
-
-ADD_EXECUTABLE(testRTSPClient ${COMMON_HDRS} ${TEST_RTSP_CLIENT_SRCS})
-TARGET_LINK_LIBRARIES(
-testRTSPClient
-BasicUsageEnvironment
-groupsock
-liveMedia
-UsageEnvironment
-${EXTRA_LIBS}
-) 
+ADD_EXECUTABLE(testMPEG2TransportStreamer testMPEG2TransportStreamer.cpp ${COMMON_HDRS})
+TARGET_LINK_LIBRARIES(testMPEG2TransportStreamer ${COMMON_LIBS} ${EXTRA_LIBS})
